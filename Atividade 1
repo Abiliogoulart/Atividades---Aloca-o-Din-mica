@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // Declaração do ponteiro para o array de inteiros
+    int *ptr;
+
+    // (a) Aloca dinamicamente um array de 5 números inteiros
+    // Calcula o tamanho total em bytes (5 * tamanho de um inteiro)
+    ptr = (int*) malloc(5 * sizeof(int));
+
+    // Verifica se a alocação foi bem-sucedida
+    if (ptr == NULL) {
+        printf("Erro: memoria insuficiente!\n");
+        return 1;
+    }
+
+    // (b) Pede para o usuário digitar os 5 números
+    printf("Digite 5 numeros inteiros:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Numero %d: ", i + 1);
+        scanf("%d", &ptr[i]);
+    }
+
+    // (c) Mostra na tela os 5 números
+    printf("\nNumeros inseridos:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Numero %d: %d\n", i + 1, ptr[i]);
+    }
+
+    // (d) Libera a memória alocada
+    free(ptr);
+
+    return 0;
+}
