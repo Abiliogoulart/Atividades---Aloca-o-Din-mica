@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    int *vet;
+
+    // Pede ao usuário o tamanho do vetor
+    printf("Quantos elementos o vetor tera? ");
+    scanf("%d", &n);
+
+    // Aloca dinamicamente a memória para o vetor
+    vet = (int*) malloc(n * sizeof(int));
+    if (vet == NULL) {
+        printf("Erro ao alocar memoria!\n");
+        return 1;
+    }
+
+    // Lê os valores do usuário e preenche o vetor
+    printf("Digite os %d valores:\n", n);
+    for (int i = 0; i < n; i++) {
+        printf("Elemento %d: ", i + 1);
+        scanf("%d", &vet[i]);
+    }
+
+    // Imprime o vetor lido
+    printf("\nVetor lido:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Elemento %d: %d\n", i + 1, vet[i]);
+    }
+
+    // Libera a memória alocada
+    free(vet);
+
+    return 0;
+}
